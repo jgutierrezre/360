@@ -1,0 +1,15 @@
+services:      
+  node:
+    container_name: node
+    build:
+      context: .
+      dockerfile: ./docker/node/Dockerfile
+    image: node
+    tty: true 
+    volumes:
+      - ./next:/app
+      - /app/node_modules/
+      - /app/.next/
+    ports:
+      - 80:80
+    working_dir: /app
